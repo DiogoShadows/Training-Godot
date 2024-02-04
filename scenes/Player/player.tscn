@@ -7,11 +7,38 @@
 radius = 63.0079
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 31
 script = ExtResource("1_3ofku")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(2, -36)
+position = Vector2(37, 1)
+rotation = 1.5708
 texture = ExtResource("1_j4val")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_41r83")
+
+[node name="Laser_timer" type="Timer" parent="."]
+wait_time = 0.504
+
+[node name="Granade_timer" type="Timer" parent="."]
+wait_time = 1.985
+
+[node name="LaserStartPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(133, 19)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(128, 11)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(128, 28)
+
+[node name="GrenadeStartPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="GrenadeStartPositions"]
+position = Vector2(89, 22)
+
+[connection signal="timeout" from="Laser_timer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="Granade_timer" to="." method="_on_granade_timer_timeout"]

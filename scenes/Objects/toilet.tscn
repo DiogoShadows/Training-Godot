@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c1whry4g7crpo" path="res://resources/graphics/objects/toilet.png" id="1_uoym6"]
 
 [node name="Toilet" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uoym6")
